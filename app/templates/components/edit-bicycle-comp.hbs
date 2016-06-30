@@ -1,0 +1,15 @@
+﻿<ul>
+    {{#each bicycles as |bicycleItem|}}
+        <li {{action 'selectBicycle' bicycleItem}}>{{listing-bicycle-comp bicycle=bicycleItem}}</li>
+    {{/each}}
+</ul>
+
+{{#if bicycleId}}
+    <p>Модель: {{input value=bicycleModel}}</p>
+    <p>Описание: {{input value=bicycleDescription}}</p>
+    {{#if bicycleModel}}
+        <button {{action 'submit'}}>Сохранить</button>
+    {{else}}
+        <button disabled {{action 'submit'}}>Сохранить</button>
+    {{/if}}
+{{/if}}

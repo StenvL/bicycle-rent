@@ -1,0 +1,37 @@
+﻿<ul>
+    <li {{action 'changeMenuItemShowingState' 'isBicycleMenuShowing'}}>Велосипеды</li>
+    {{#if isBicycleMenuShowing}}
+    <ul>
+        <li>{{#link-to 'admin.add-bicycle'}}Добавить{{/link-to}}</li>
+        <li>{{#link-to 'admin.edit-bicycle'}}Редактировать{{/link-to}}</li>
+        <li>{{#link-to 'admin.del-bicycle'}}Удалить{{/link-to}}</li>
+    </ul>
+    {{/if}}
+
+    <li {{action 'changeMenuItemShowingState' 'isEmployeeMenuShowing'}}>Сотрудники</li>
+    {{#if isEmployeeMenuShowing}}
+    <ul>
+        <li>{{#link-to 'admin.add-employee'}}Добавить{{/link-to}}</li>
+        <li>{{#link-to 'admin.edit-employee'}}Редактировать{{/link-to}}</li>
+        <li>{{#link-to 'admin.del-employee'}}Удалить{{/link-to}}</li>
+    </ul>
+    {{/if}}
+
+    <li {{action 'changeMenuItemShowingState' 'isClientMenuShowing'}}>Клиенты</li>
+    {{#if isClientMenuShowing}}
+    <ul>
+        <li>{{#link-to 'admin.add-client'}}Добавить{{/link-to}}</li>
+        <li>{{#link-to 'admin.edit-client'}}Редактировать{{/link-to}}</li>
+        <li>{{#link-to 'admin.del-client'}}Удалить{{/link-to}}</li>
+    </ul>
+    {{/if}}
+
+    <li {{action 'changeMenuItemShowingState' 'isPointMenuShowing'}}>Точки проката</li>
+    {{#if isPointMenuShowing}}
+    <ul>
+        <li>{{#link-to 'admin.add-point'}}Добавить{{/link-to}}</li>
+        <li>{{#link-to 'admin.edit-point'}}Редактировать{{/link-to}}</li>
+        <li>{{#link-to 'admin.del-point'}}Удалить{{/link-to}}</li>
+    </ul>
+    {{/if}}
+</ul>

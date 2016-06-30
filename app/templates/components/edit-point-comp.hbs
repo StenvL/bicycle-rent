@@ -1,0 +1,14 @@
+﻿<ul>
+    {{#each points as |pointItem|}}
+    <li {{action 'selectPoint' pointItem}}>{{listing-point-comp point=pointItem}}</li>
+    {{/each}}
+</ul>
+
+{{#if pointId}}
+    <p>Адрес: {{input value=pointAddress}}</p>
+    {{#if pointAddress}}{
+        <button {{action 'submit'}}>Сохранить</button>
+    {{else}}
+        <button disabled {{action 'submit'}}>Сохранить</button>
+    {{/if}}
+{{/if}}

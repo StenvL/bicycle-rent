@@ -1,0 +1,18 @@
+﻿<h4>Просмотр и редактирование</h4>
+{{
+filter-session-comp
+    sessionList=sessionList
+    filterByDate=(action 'filterByDate')
+    filterByModel=(action 'filterByModel')
+    filterByDateAndModel=(action 'filterByDateAndModel')
+    selectSession=(action 'selectSession')
+    bicycles=model
+}}
+
+{{
+edit-session-comp
+    session=session      
+    submit=(action 'applyChanges')
+}}
+
+

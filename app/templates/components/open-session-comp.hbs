@@ -1,0 +1,42 @@
+﻿<p>
+    Выдал:
+    <select onchange={{action 'selectEmployeeGiveValue'}} id="employeesList">
+        <option selected disabled value="">Ваши данные</option>
+        {{#each employees as |employeeItem|}}
+            <option value={{employeeItem.id}}>{{listing-employee-comp employee=employeeItem}}</option>
+        {{/each}}
+    </select>
+</p>
+
+<p>
+    Клиент:
+    <select onchange={{action 'selectClientValue'}} id="clientsList">
+        <option selected disabled value="">Данные клиента</option>
+        {{#each clients as |clientItem|}}
+            <option value={{clientItem.id}}>{{listing-client-comp client=clientItem}}</option>
+        {{/each}}
+    </select>
+    {{#link-to 'admin.add-client'}}Добавить нового{{/link-to}}
+</p>
+
+<p>
+    Велосипед:
+    <select onchange={{action 'selectBicycleValue'}} id="bicyclesList"> 
+        <option selected disabled value="">Выбранный велосипед</option>
+        {{#each bicycles as |bicycleItem|}}
+        <option value={{bicycleItem.id}}>{{listing-bicycle-comp bicycle=bicycleItem}}</option>
+        {{/each}}
+    </select>
+</p>
+
+<p>
+    Точка выдачи:
+    <select onchange={{action 'selectStartPointValue'}} id="startPointsList">
+        <option selected disabled value="">Точка выдачи велосипеда</option>
+        {{#each points as |pointItem|}}
+        <option value={{pointItem.id}}>{{listing-point-comp point=pointItem}}</option>
+        {{/each}}
+    </select>
+</p>
+
+<button {{action 'submit'}}>Применить</button>

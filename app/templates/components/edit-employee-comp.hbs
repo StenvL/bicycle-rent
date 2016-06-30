@@ -1,0 +1,15 @@
+﻿<ul>
+    {{#each employees as |employeeItem|}}
+    <li {{action 'selectEmployee' employeeItem}}>{{listing-employee-comp employee=employeeItem}}</li>
+    {{/each}}
+</ul>
+
+{{#if empId}}
+    <p>ФИО: {{input value=empFullname}}</p>
+    <p>Должность: {{input value=empPosition}}</p>
+    {{#if isDataValid}}
+        <button {{action 'submit'}}>Сохранить</button>
+    {{else}}
+        <button disabled {{action 'submit'}}>Сохранить</button>
+    {{/if}}
+{{/if}}

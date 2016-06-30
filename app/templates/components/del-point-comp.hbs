@@ -1,0 +1,9 @@
+﻿<select onchange={{action 'selectPointValue'}} id="pointsList">
+
+    <option selected disabled value="">Выберите точку</option>
+    {{#each points as |pointItem|}}
+        <option value={{pointItem.id}}>{{listing-point-comp point=pointItem}}</option>
+    {{/each}}
+</select>
+
+<button {{action 'submit'}}>Удалить</button>

@@ -1,0 +1,6 @@
+﻿<p>Адрес точки: {{input value=pointAddress}}</p>
+{{#if pointAddress}}
+  <button {{action 'submit'}}>Добавить</button>
+{{else}}
+  <button disabled {{action 'submit'}}>Добавить</button>
+{{/if}}

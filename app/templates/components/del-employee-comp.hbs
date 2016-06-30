@@ -1,0 +1,9 @@
+﻿<select onchange={{action 'selectEmployeeValue'}} id="employeesList">
+    <option selected disabled value="">Выберите сотрудника</option>
+
+    {{#each employees as |employeeItem|}}
+        <option value={{employeeItem.id}}>{{listing-employee-comp employee=employeeItem}}</option>
+    {{/each}}
+</select>
+
+<button {{action 'submit'}}>Удалить</button>

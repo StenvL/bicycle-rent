@@ -1,0 +1,38 @@
+div.main-container {
+    width: 700px;
+    height: 1000px;
+    margin: auto;
+}
+
+div.header {
+    width: 700px;
+    height: 300px;
+    margin: auto;
+    background-image: url('header.jpg');
+}
+
+div.content {
+    width: 696px;
+    height:896px;
+    margin: auto;
+    border: 2px solid black;
+    background: #d8d6c1;
+}
+
+div.menu{
+    width: 208px;
+    height: 896px;
+    float: left;
+    border-right: 2px solid black;
+    padding-left: 5px;
+}
+
+div.interactive-area{
+
+}
+
+div.interactive-area-container {
+    width: 470px;
+    float: right;
+    padding-left: 10px;
+}

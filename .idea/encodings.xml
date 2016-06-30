@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/app/components/add-point-comp.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/styles/app.css" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/templates/admin/add-bicycle.hbs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/templates/admin/add-client.hbs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/templates/admin/add-point.hbs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/templates/admin/del-bicycle.hbs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/templates/admin/del-employee.hbs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/templates/admin/del-point.hbs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/templates/admin/edit-bicycle.hbs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/templates/admin/edit-employee.hbs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/templates/admin/edit-point.hbs" charset="UTF-8" />
+  </component>
+</project>

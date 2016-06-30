@@ -1,0 +1,19 @@
+﻿<p>Фильтровать по дате выдачи</p>
+{{input type="date" value=selectedDate}}
+
+<p>Фильтровать по марке велосипеда</p>
+<select id="bicyclesList">
+    <option value="">Не выбрано</option>
+    {{#each bicycles as |bicycleItem|}}
+        <option value={{bicycleItem.id}}>{{bicycleItem.model}}</option>
+    {{/each}}
+</select>
+
+<p><button {{action 'showFilteredData'}}>Отобразить</button></p>
+
+<ul>
+    {{#each sessionList as |sessionItem| }}
+        <li {{action 'selectSession' sessionItem}}>{{listing-session-comp session=sessionItem}}</li>
+    {{/each}}
+</ul>
+

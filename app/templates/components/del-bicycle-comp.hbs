@@ -1,0 +1,9 @@
+﻿<select onchange={{action 'selectBicycleValue'}} id="bicyclesList">
+    <option selected disabled value="">Выберите велосипед</option>
+
+    {{#each bicycles as |bicycleItem|}}
+        <option value={{bicycleItem.id}}>{{listing-bicycle-comp bicycle=bicycleItem}}</option>
+    {{/each}}
+</select>
+
+<button {{action 'submit'}}>Удалить</button>

@@ -1,0 +1,15 @@
+﻿{{#if session}}
+    <h4>Редактирование</h4>
+    <p>Номер велосипеда: {{input value=session.bicycle}}</p>
+    <p>Номер клиента: {{input value=session.client}}</p>
+    <p>Выдал: {{input value=session.employeeGive}}</p>
+    <p>Принял: {{input value=session.employeeTake}}</p>
+    <p>Время выдачи: {{input type="datetime-local" value=session.giveDate}}</p>
+    <p>Время сдачи: {{input type="datetime-local" value=session.returnDate}}</p>
+    <p>Точка старта: {{input value=session.startPoint}}</p>
+    <p>Точка возврата: {{input value=session.endPoint}}</p>
+    <p>Статус: {{input value=session.status}}</p>
+    <p>Сумма: {{input value=session.cost}}</p>
+
+    <button {{action 'submit'}}>Сохранить</button>
+{{/if}}

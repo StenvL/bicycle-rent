@@ -1,0 +1,30 @@
+﻿<div class="main-container">
+    
+    {{#link-to 'index'}}<div class="header"></div>{{/link-to}}
+
+    <div class="content">
+
+        <div class="menu">
+            <h4>Прокат</h4>
+            <ul>
+                <li>{{#link-to 'rent.open'}}Выдать велосипед{{/link-to}}</li>
+                <li>{{#link-to 'rent.close'}}Забрать велосипед{{/link-to}}</li>
+                <li>{{#link-to 'rent.edit'}}Редактирование/просмотр истории{{/link-to}}</li>
+            </ul>
+
+            <h4>Статистика</h4>
+            <ul>
+                <li>{{#link-to 'stats.average'}}Средняя продолжительность по маркам в точках{{/link-to}}</li>
+            </ul>
+
+            <h4>Администрирование</h4>
+            {{listing-admin-menu-comp}}
+        </div>
+
+        <div class="interactive-area-container">
+            <div class="interactive-area">
+                {{outlet}}
+            </div>
+        </div>
+    </div>
+</div>
