@@ -21,24 +21,9 @@ export default Ember.Component.extend({
             else { alert("Необходимо заполнить все данные"); }
         },
 
-        selectEmployeeGiveValue() {
-            let curIndex = document.getElementById('employeesList').selectedIndex;
-            this.set('employeeGiveId', document.getElementById('employeesList')[curIndex].value);            
-        },
-
-        selectClientValue() {
-            let curIndex = document.getElementById('clientsList').selectedIndex;
-            this.set('clientId', document.getElementById('clientsList')[curIndex].value);
-        },
-
-        selectBicycleValue() {
-            let curIndex = document.getElementById('bicyclesList').selectedIndex;
-            this.set('bicycleId', document.getElementById('bicyclesList')[curIndex].value);
-        },
-
-        selectStartPointValue() {
-            let curIndex = document.getElementById('startPointsList').selectedIndex;
-            this.set('startPointId', document.getElementById('startPointsList')[curIndex].value);
+        selectItem(listId, attrName) {
+            let list = document.getElementById(listId);
+            this.set(attrName, list[list.selectedIndex].value);
         }
     }
 });

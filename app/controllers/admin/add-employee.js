@@ -2,7 +2,7 @@
 
 export default Ember.Controller.extend({
     actions: {
-        submit(empName, empPosition) {
+        addEmployee(empName, empPosition) {
             var record = this.store.createRecord('employee', {
                 fullName: empName,
                 position: empPosition

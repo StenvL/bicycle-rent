@@ -1,14 +1,12 @@
 ﻿<h4>Редактирование клиента</h4>
 Поиск клиента по ФИО
-{{
-filter-client-comp
+{{filter-client-comp
     filteredClients=filteredClients
     searchClients=(action 'searchClients')
     selectClient=(action 'selectClient')
 }}
 
-{{
-edit-client-comp
+{{edit-client-comp
     client=client
     submit=(action 'applyChanges')
 }}

@@ -1,25 +1,20 @@
 <h4>Средняя продолжительность проката велосипедов каждой марке в точках</h4>
 
-<select onchange={{action 'setBicycleValue'}} id="bicyclesList">
+<select onchange={{action 'selectItem' 'bicyclesList' 'bicycleId'}} id="bicyclesList">
     <option selected disabled>Выберите велосипед</option>
     {{#each bicycles as |bicycleItem| }}
         <option value={{bicycleItem.id}}>{{listing-bicycle-comp bicycle=bicycleItem}}</option>
     {{/each}}
 </select>
 
-<select onchange={{action 'setPointValue'}} id="pointsList">
+<select onchange={{action 'selectItem' 'pointsList' 'pointId'}} id="pointsList">
     <option selected disabled>Выберите точку</option>
     {{#each points as |pointItem| }}
         <option value={{pointItem.id}}>{{listing-point-comp point=pointItem}}</option>
     {{/each}}
 </select>
 
-{{#if isDataValid}}
-    <button {{action 'submit'}}>Отобразить</button>
-{{else}}
-    <button disabled>Отобразить</button>
-{{/if}}
-
+<button disabled={{not isDataValid}} {{action 'submit'}}>Отобразить</button>
 
 {{#if isAverageTimeAvailable}}
     <p>Среднее время проката велосипеда на точке: {{averageTime}} минут</p>

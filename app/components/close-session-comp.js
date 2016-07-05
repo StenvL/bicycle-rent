@@ -8,26 +8,14 @@ export default Ember.Component.extend({
     	return this.get('sessionId') && this.get('empId') && this.get('pointId');
     }),
 
-    getListValue(listId) {
-    	var index = document.getElementById(listId).selectedIndex;
-        return document.getElementById(listId)[index].value; 
-    }, 
-
     actions: {
         submit() {
             this.get('submit')(this.get('sessionId'), this.get('empId'), this.get('pointId'));
         },
 
-        setSessionValue() {
-            this.set('sessionId', this.get('getListValue')('sessionsList'));
-        },
-
-        setEmployeeValue() {
-            this.set('empId', this.get('getListValue')('employeesList'));
-        },
-
-        setPointValue() {
-            this.set('pointId', this.get('getListValue')('pointsList'));
+        selectItem(listId, attrName) {
+            let list = document.getElementById(listId);
+            this.set(attrName, list[list.selectedIndex].value);
         }
     }
 });

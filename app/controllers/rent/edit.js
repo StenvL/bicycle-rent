@@ -6,16 +6,22 @@ export default Ember.Controller.extend({
     filteredClients: [],
 
     actions: {
+        // Поиск клиентов по фильтру.
         searchClients(filter) {
             this.store.query('client', { fullName: filter }).then( (result) =>
                 this.set('filteredClients', result));
         },
 
+        // Присвоение свойствам выбранных значений.
         selectClient(client) {
             this.set('session.client', client.get('id'));
         },
 
+                selectSession(sessionItem) {
+            this.set('session', sessionItem);
+        },
 
+        // Способы фильтрации.
         filterByDateAndModel(selectedDate, selectedBicycleId) {
             this.store.query('session', { giveDate: selectedDate, bicycle: selectedBicycleId } ).then((result) =>
                 this.set('sessionList', result) );
@@ -31,10 +37,7 @@ export default Ember.Controller.extend({
                 this.set('sessionList', result));
         },
 
-        selectSession(sessionItem) {
-            this.set('session', sessionItem);
-        },
-
+        // Сохранение изменений в бэкэнд.
         applyChanges(giveDate, returnDate) {
             this.store.findRecord('session', this.get('session').get('id')).then( (record) => {
                 record.set('bicycle',this.get('session').get('bicycle'));

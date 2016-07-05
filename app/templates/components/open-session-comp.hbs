@@ -2,7 +2,7 @@
 
 <p>
     Выдал:
-    <select onchange={{action 'selectEmployeeGiveValue'}} id="employeesList">
+    <select onchange={{action 'selectItem' 'employeesList' 'employeeGiveId'}} id="employeesList">
         <option selected disabled value="">Ваши данные</option>
         {{#each employees as |employeeItem|}}
             <option value={{employeeItem.id}}>{{listing-employee-comp employee=employeeItem}}</option>
@@ -12,7 +12,7 @@
 
 <p>
     Велосипед:
-    <select onchange={{action 'selectBicycleValue'}} id="bicyclesList"> 
+    <select onchange={{action 'selectItem' 'bicyclesList' 'bicycleId'}} id="bicyclesList"> 
         <option selected disabled value="">Выбранный велосипед</option>
         {{#each bicycles as |bicycleItem|}}
         <option value={{bicycleItem.id}}>{{listing-bicycle-comp bicycle=bicycleItem}}</option>
@@ -22,7 +22,7 @@
 
 <p>
     Точка выдачи:
-    <select onchange={{action 'selectStartPointValue'}} id="startPointsList">
+    <select onchange={{action 'selectItem' 'startPointsList' 'startPointId'}} id="startPointsList">
         <option selected disabled value="">Точка выдачи велосипеда</option>
         {{#each points as |pointItem|}}
         <option value={{pointItem.id}}>{{listing-point-comp point=pointItem}}</option>
@@ -30,8 +30,4 @@
     </select>
 </p>
 
-{{#if isDataValid}}
-    <button {{action 'submit'}}>Применить</button>
-{{else}}
-    <button disabled>Применить</button>  
-{{/if}}
+<button disabled={{not isDataValid}} {{action 'submit'}}>Применить</button>

@@ -1,7 +1,7 @@
 ﻿<p>
     Сессия:
-    <select onchange={{action 'setSessionValue'}} id="sessionsList">
-        <option selected disabled value="">Выберите сессию для закрытия</option>
+    <select onchange={{action 'selectItem' 'sessionsList' 'sessionId'}} id="sessionsList">
+        <option selected disabled value="">Сессия для закрытия</option>
         {{#each sessions as |sessionItem|}}
         <option value={{sessionItem.id}}>{{listing-session-comp session=sessionItem}}</option>
         {{/each}}
@@ -10,7 +10,7 @@
 
 <p>
     Принял:
-    <select onchange={{action 'setEmployeeValue'}} id="employeesList">
+    <select onchange={{action 'selectItem' 'employeesList' 'empId'}} id="employeesList">
         <option selected disabled value="">Ваши данные</option>
         {{#each employees as |employeeItem|}}
         <option value={{employeeItem.id}}>{{listing-employee-comp employee=employeeItem}}</option>
@@ -20,7 +20,7 @@
 
 <p>
     Точка сдачи:
-    <select onchange={{action 'setPointValue'}} id="pointsList">
+    <select onchange={{action 'selectItem' 'pointsList' 'pointId'}} id="pointsList">
         <option selected disabled value="">Точка сдачи велосипеда</option>
         {{#each points as |pointItem|}}
         <option value={{pointItem.id}}>{{listing-point-comp point=pointItem}}</option>

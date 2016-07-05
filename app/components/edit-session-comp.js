@@ -4,10 +4,9 @@ export default Ember.Component.extend({
     session: null,
 
     actions: {
-        selectItem(listName, attributeName) {
-            let list = document.getElementById(listName);
-            let index = list.selectedIndex;
-            this.set(attributeName, list[index].value);
+        selectItem(listId, attrName) {
+            let list = document.getElementById(listId);
+            this.set(attrName, list[list.selectedIndex].value);
         },
 
         submit() {

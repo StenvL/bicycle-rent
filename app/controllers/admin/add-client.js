@@ -2,7 +2,7 @@
 
 export default Ember.Controller.extend({
     actions: {
-        submit(name, document) {
+        addClient(name, document) {
             var record = this.store.createRecord('client', {
                 fullName: name,
                 documentData: document

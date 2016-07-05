@@ -2,7 +2,7 @@
 
 export default Ember.Controller.extend({
     actions: {
-        submit (pointAddress) {
+        addPoint(pointAddress) {
             var record = this.store.createRecord('point', {
                 address: pointAddress
             });
