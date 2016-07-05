@@ -1,9 +1,22 @@
 ﻿import Ember from 'ember';
 
 export default Ember.Controller.extend({
+    filteredClients: null,
+    clientId: null,
+    
     actions: {
+
+        searchClients(filter) {
+            this.store.query('client', { fullName: filter }).then( (result) =>
+                this.set('filteredClients', result));
+        },
+
+       selectClient(client) {
+            this.set('clientId', client.get('id'));
+        },
+
         openSession(giveName, client, bicycle, startPoint) {
-            var record = this.store.createRecord('session',
+                let record = this.store.createRecord('session',
                 {
                     employeeGive: giveName,
                     client: client,

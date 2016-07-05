@@ -1,4 +1,6 @@
-﻿<p>
+﻿Идентификатор выбранного клиента: {{clientId}}
+
+<p>
     Выдал:
     <select onchange={{action 'selectEmployeeGiveValue'}} id="employeesList">
         <option selected disabled value="">Ваши данные</option>
@@ -6,17 +8,6 @@
             <option value={{employeeItem.id}}>{{listing-employee-comp employee=employeeItem}}</option>
         {{/each}}
     </select>
-</p>
-
-<p>
-    Клиент:
-    <select onchange={{action 'selectClientValue'}} id="clientsList">
-        <option selected disabled value="">Данные клиента</option>
-        {{#each clients as |clientItem|}}
-            <option value={{clientItem.id}}>{{listing-client-comp client=clientItem}}</option>
-        {{/each}}
-    </select>
-    {{#link-to 'admin.add-client'}}Добавить нового{{/link-to}}
 </p>
 
 <p>
@@ -39,4 +30,8 @@
     </select>
 </p>
 
-<button {{action 'submit'}}>Применить</button>
+{{#if isDataValid}}
+    <button {{action 'submit'}}>Применить</button>
+{{else}}
+    <button disabled>Применить</button>  
+{{/if}}

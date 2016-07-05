@@ -6,7 +6,7 @@ export default Ember.Component.extend({
     empPosition: null,
 
     isDataValid: Ember.computed('empFullname', 'empPosition', function() {
-        return this.get('empFullname') && this.get('empPosition') 
+        return this.get('empFullname') && this.get('empPosition');
     }),
 
     actions: {

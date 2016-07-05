@@ -5,5 +5,5 @@
         <option value={{employeeItem.id}}>{{listing-employee-comp employee=employeeItem}}</option>
     {{/each}}
 </select>
-
-<button {{action 'submit'}}>Удалить</button>
+    
+<button disabled={{not employeeId}} {{action 'submit'}}>Удалить</button>

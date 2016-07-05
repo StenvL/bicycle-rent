@@ -13,7 +13,7 @@ Router.map(function() {
     });
 
     this.route('stats', function() {    
-        this.route('average') 
+        this.route('average');
     });
 
     this.route('admin', function() {

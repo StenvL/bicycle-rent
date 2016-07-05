@@ -1,7 +1,3 @@
 ﻿<p>Название модели: {{input value=modelName}}</p>
 <p>Описание: {{input value=modelDescription}}</p>
-{{#if modelName}}
-    <button {{action 'submit'}}>Добавить</button>
-{{else}}
-    <button disabled {{action 'submit'}}>Добавить</button>
-{{/if}}
+<button disabled={{not modelName}} {{action 'submit'}}>Добавить</button>

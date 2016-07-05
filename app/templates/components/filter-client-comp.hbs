@@ -3,6 +3,8 @@
 
 <ul>
     {{#each filteredClients as |clientItem| }}
-       <li {{action 'selectClient' clientItem}}>Номер: {{clientItem.id}} {{listing-client-comp client=clientItem}}</li>
+       <li {{action 'selectClient' clientItem}}>
+           Номер: {{clientItem.id}} {{listing-client-comp client=clientItem}}
+        </li>
     {{/each}}
 </ul>

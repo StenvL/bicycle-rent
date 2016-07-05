@@ -1,15 +1,109 @@
-﻿{{#if session}}
-    <h4>Редактирование</h4>
-    <p>Номер велосипеда: {{input value=session.bicycle}}</p>
-    <p>Номер клиента: {{input value=session.client}}</p>
-    <p>Выдал: {{input value=session.employeeGive}}</p>
-    <p>Принял: {{input value=session.employeeTake}}</p>
-    <p>Время выдачи: {{input type="datetime-local" value=session.giveDate}}</p>
-    <p>Время сдачи: {{input type="datetime-local" value=session.returnDate}}</p>
-    <p>Точка старта: {{input value=session.startPoint}}</p>
-    <p>Точка возврата: {{input value=session.endPoint}}</p>
-    <p>Статус: {{input value=session.status}}</p>
-    <p>Сумма: {{input value=session.cost}}</p>
+<p>Велосипед: 
+    <select onchange={{action "selectItem" 'bicyclesListEditing' 'session.bicycle'}} 
+    id="bicyclesListEditing">
+        {{#each bicycles as |bicycleItem|}}
+            {{#if (equal bicycleItem.id session.bicycle)}}
+            	<option selected value={{bicycleItem.id}}>
+                	{{listing-bicycle-comp bicycle=bicycleItem}}
+              	</option>
+            {{else}}
+                <option value={{bicycleItem.id}}>
+                	{{listing-bicycle-comp bicycle=bicycleItem}}
+              	</option>
+            {{/if}}
+        {{/each}}
+    </select>
+</p>
 
-    <button {{action 'submit'}}>Сохранить</button>
-{{/if}}
+<p>Выдал: 
+    <select onchange={{action "selectItem" 'employeesGiveList' 'session.employeeGive'}} 
+    id="employeesGiveList">
+        {{#each employees as |employeeItem|}}
+            {{#if (equal employeeItem.id session.employeeGive)}}
+            	<option selected value={{employeeItem.id}}>
+                	{{listing-employee-comp employee=employeeItem}}
+              	</option>
+            {{else}}
+                <option value={{employeeItem.id}}>
+                    {{listing-employee-comp employee=employeeItem}}
+                </option>
+            {{/if}}
+        {{/each}}
+    </select>
+</p>
+
+<p>Принял: 
+    <select onchange={{action "selectItem" 'employeesTakeList' 'session.employeeTake'}}
+    id="employeesTakeList">
+        {{#each employees as |employeeItem|}}
+            {{#if (equal employeeItem.id session.employeeTake)}}
+                <option selected value={{employeeItem.id}}>
+                    {{listing-employee-comp employee=employeeItem}}
+                </option>
+            {{else}}
+                <option value={{employeeItem.id}}>
+                    {{listing-employee-comp employee=employeeItem}}
+                </option>
+            {{/if}}
+        {{/each}}
+    </select>
+</p>
+
+<p>Время выдачи:
+    {{#if session.giveDate}} 
+        {{input type="datetime-local" 
+            value=(date-to-iso-format session.giveDate)
+            id="giveDatePicker"}}
+    {{else}}
+        {{input type="datetime-local"}}
+    {{/if}}
+</p>
+
+<p>Время сдачи:
+    {{#if session.returnDate}}
+        {{input type="datetime-local" 
+            value=(date-to-iso-format session.returnDate) 
+            id="returnDatePicker"}}
+    {{else}}
+        {{input type="datetime-local"}}
+    {{/if}}
+</p>
+
+<p>Точка старта: 
+    <select onchange={{action "selectItem" 'pointsStartList' 'session.startPoint'}}
+    id="pointsStartList">
+        {{#each points as |pointItem|}}
+            {{#if (equal pointItem.id session.startPoint)}}
+            	<option selected value={{pointItem.id}}>
+                	{{listing-point-comp point=pointItem}}
+                </option>
+            {{else}}
+                <option value={{pointItem.id}}>
+                	{{listing-point-comp point=pointItem}}
+                </option>
+            {{/if}}
+        {{/each}}
+    </select>
+</p>
+    
+<p>Точка возврата: 
+    <select onchange={{action "selectItem" 'pointsEndList' 'session.endPoint'}}
+    id="pointsEndList">
+        {{#each points as |pointItem|}}
+            {{#if (equal pointItem.id session.endPoint)}}
+            	<option selected value={{pointItem.id}}>
+                	{{listing-point-comp point=pointItem}}
+                </option>
+            {{else}}
+                <option value={{pointItem.id}}>
+                	{{listing-point-comp point=pointItem}}
+                </option>
+            {{/if}}
+        {{/each}}
+    </select>
+</p>
+
+<p>Статус: {{input value=session.status}}</p>
+<p>Сумма: {{input value=session.cost}}</p>
+
+<button {{action 'submit'}}>Сохранить</button>

@@ -10,7 +10,7 @@ export default Ember.Controller.extend({
                 if (sessions.get('length') !== 0) {
                     let timeCount = 0;
                     sessions.forEach( (item) =>
-                        timeCount += item.get('returnDate') - item.get('giveDate')
+                        timeCount += new Date(item.get('returnDate')) - new Date(item.get('giveDate'))
                     );
 
                     this.set('averageTime', 

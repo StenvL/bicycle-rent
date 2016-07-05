@@ -9,7 +9,7 @@ export default Ember.Component.extend({
 
     actions: {      
         submit() {
-            this.get('submit')(this.get('clientId'), this.get('clientName'), this.get('clientDoc'))
+            this.get('submit')();
         }
     }
 });

@@ -1,5 +1,17 @@
 ﻿<h4>Выдача велосипеда</h4>
-{{open-session-comp
+ 
+Клиент:   
+{{
+filter-client-comp
+    filteredClients=filteredClients
+    searchClients=(action 'searchClients')
+    selectClient=(action 'selectClient')
+}}
+<p>{{#link-to 'admin.add-client'}}Создать нового{{/link-to}}</p>
+
+{{
+open-session-comp
+    clientId=clientId
     employees=model.employee
     clients=model.client
     bicycles=model.bicycle

@@ -1,8 +1,4 @@
 ﻿<p>ФИО: {{input value=clientName}}</p>
 <p>Тип документа: {{input value=docType}}</p>
 <p>Номер документа: {{input value=docData}}</p>
-{{#if isDataValid}}
-    <button {{action 'submit'}}>Добавить</button>
-{{else}}
-    <button disabled {{action 'submit'}}>Добавить</button>
-{{/if}}
+<button disabled={{not isDataValid}} {{action 'submit'}}>Добавить</button>

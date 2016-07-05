@@ -18,7 +18,8 @@ export default Ember.Controller.extend({
             this.store.findRecord('client', this.get('client').get('id')).then( (record) => {
                 record.set('fullName', this.get('client').get('fullName'));
                 record.set('documentData', this.get('client').get('documentData'));
-                alert('Данные успешно сохранены');
+                record.save().then( () =>
+                    alert('Данные успешно сохранены') );
             })
             .catch(error => alert(`Ошибка сохранения данных: ${error}`));
         }

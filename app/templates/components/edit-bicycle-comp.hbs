@@ -7,9 +7,5 @@
 {{#if bicycleId}}
     <p>Модель: {{input value=bicycleModel}}</p>
     <p>Описание: {{input value=bicycleDescription}}</p>
-    {{#if bicycleModel}}
-        <button {{action 'submit'}}>Сохранить</button>
-    {{else}}
-        <button disabled {{action 'submit'}}>Сохранить</button>
-    {{/if}}
+    <button disabled={{not bicycleModel}} {{action 'submit'}}>Сохранить</button>
 {{/if}}

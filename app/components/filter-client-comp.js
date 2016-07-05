@@ -14,7 +14,7 @@ export default Ember.Component.extend({
 
         selectClient(client) {
             let clientClone = {};
-            for (var key in client) {
+            for (let key in client) {
                 clientClone[key] = client[key];
             }
             this.get('selectClient')(clientClone);

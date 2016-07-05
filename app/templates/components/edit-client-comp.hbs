@@ -1,9 +1,5 @@
 ﻿{{#if client.id}}
     <p>ФИО: {{input value=client.fullName}}</p>
     <p>Документ: {{input value=client.documentData}}</p>
-    {{#if isDataValid}}
-        <button  {{action 'submit'}}>Сохранить</button>
-    {{else}}
-        <button disabled {{action 'submit'}}>Сохранить</button>
-    {{/if}}
+    <button disabled={{not isDataValid}} {{action 'submit'}}>Сохранить</button>
 {{/if}}

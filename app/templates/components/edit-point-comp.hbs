@@ -6,9 +6,5 @@
 
 {{#if pointId}}
     <p>Адрес: {{input value=pointAddress}}</p>
-    {{#if pointAddress}}{
-        <button {{action 'submit'}}>Сохранить</button>
-    {{else}}
-        <button disabled {{action 'submit'}}>Сохранить</button>
-    {{/if}}
+    <button disabled={{not pointAddress}} {{action 'submit'}}>Сохранить</button>
 {{/if}}

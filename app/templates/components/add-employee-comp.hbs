@@ -1,7 +1,3 @@
 ﻿<p>ФИО: {{input value=empName}}</p>
 <p>Должность: {{input value=empPosition}}</p>
-{{#if isDataValid}}
-    <button {{action 'submit'}}>Добавить</button>
-{{else}}
-    <button disabled {{action 'submit'}}>Добавить</button>
-{{/if}}
+<button disabled={{not isDataValid}} {{action 'submit'}}>Добавить</button>

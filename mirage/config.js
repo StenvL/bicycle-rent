@@ -4,6 +4,7 @@
     this.get('/employees/:id');
     this.post('/employees');
     this.del('/employees/:id');
+    this.patch('/employees/:id');
 
 //------------------------------------------------------------------------------------------------------------------------
 
@@ -11,6 +12,8 @@
     this.get('/bicycles/:id')
     this.post('/bicycles');
     this.del('/bicycles/:id');
+    this.patch('/bicycles/:id');
+
 
 //------------------------------------------------------------------------------------------------------------------------
 
@@ -18,6 +21,8 @@
     this.get('/points/:id');
     this.post('/points');
     this.del('/points/:id');
+    this.patch('/points/:id');
+
 
 //------------------------------------------------------------------------------------------------------------------------
 
@@ -33,6 +38,7 @@
     this.get('/clients/:id');
     this.post('/clients');
     this.del('/clients/:id');
+    this.patch('/clients/:id');
 
 //------------------------------------------------------------------------------------------------------------------------
 
@@ -52,8 +58,9 @@
 
         else if (params.bicycle !== undefined && params.startPoint !== undefined) {
             return db.sessions.where( (session) => 
-                session.bicycle==params.bicycle && session.startPoint == params.startPoint
-                && session.status == "Закрыта");
+                session.bicycle == params.bicycle && 
+                session.startPoint == params.startPoint && 
+                session.status == "Закрыта");
         }
 
         else if (params.giveDate !== undefined) {
@@ -73,7 +80,7 @@
 
     this.get('/sessions/:id');
     this.post('/sessions');
-//------------------------------------------------------------------------------------------------------------------------
+    this.patch('/sessions/:id');
 
-    
+//------------------------------------------------------------------------------------------------------------------------   
 }

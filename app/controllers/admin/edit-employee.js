@@ -6,7 +6,8 @@ export default Ember.Controller.extend({
             this.store.findRecord('employee', id).then( (record) => {
                 record.set('fullName', fullname);
                 record.set('position', position);
-                alert('Данные успешно сохранены');
+                record.save().then( () =>
+                alert('Данные успешно сохранены') );
             })
             .catch(error => alert(`Ошибка сохранения данных: ${error}`));
         }

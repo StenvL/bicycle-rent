@@ -28,8 +28,4 @@
     </select>
 </p>
 
-{{#if isDataValid}}
-    <button {{action 'submit'}}>Применить</button>
-{{else}}
-    <button disabled {{action 'submit'}}>Применить</button>
-{{/if}}
+<button disabled={{not isDataValid}} {{action 'submit'}}>Применить</button>

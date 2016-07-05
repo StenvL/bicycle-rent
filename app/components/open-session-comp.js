@@ -6,10 +6,15 @@ export default Ember.Component.extend({
     bicycleId: null,
     startPointId: null,
     
+    isDataValid: Ember.computed('clientId', 'bicycleId', 'startPointId', function() {
+        return this.get('clientId') && this.get('bicycleId') && this.get('startPointId');
+    }),
+
     actions: {
         submit() {
-            if (this.get('employeeGiveId') && this.get('clientId')
-                && this.get('bicycleId') && this.get('startPointId')) {
+            if (this.get('employeeGiveId') && this.get('clientId')  && 
+                this.get('bicycleId') && this.get('startPointId')) {
+                    
                 this.get('submit')(this.get('employeeGiveId'), this.get('clientId'), 
                     this.get('bicycleId'), this.get('startPointId'));
             }

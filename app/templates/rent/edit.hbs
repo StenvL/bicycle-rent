@@ -1,18 +1,31 @@
 ﻿<h4>Просмотр и редактирование</h4>
 {{
 filter-session-comp
+    bicycles=model.bicycle
     sessionList=sessionList
     filterByDate=(action 'filterByDate')
     filterByModel=(action 'filterByModel')
     filterByDateAndModel=(action 'filterByDateAndModel')
     selectSession=(action 'selectSession')
-    bicycles=model
 }}
 
-{{
-edit-session-comp
-    session=session      
-    submit=(action 'applyChanges')
-}}
+{{#if session.id}}   
+    <h4>Редактирование</h4>
+    <p>Клиент:</p>
+        {{filter-client-comp
+            filteredClients=filteredClients
+            searchClients=(action 'searchClients')
+            selectClient=(action 'selectClient')
+        }}
+        Идентификатор клиента: {{session.client}}
 
+    {{
+    edit-session-comp
+        bicycles=model.bicycle
+        employees=model.employee
+        points=model.point
+        session=session      
+        submit=(action 'applyChanges')
+    }}
+{{/if}}
 

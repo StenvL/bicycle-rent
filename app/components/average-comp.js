@@ -7,7 +7,9 @@ export default Ember.Component.extend({
     isDataValid: Ember.computed('bicycleId', 'pointId', function() {
         return this.get('bicycleId') && this.get('pointId');
     }),
-    isAverageTimeAvailable: false,
+    isAverageTimeAvailable: Ember.computed('averageTime', function() {
+        return this.get('averageTime') !== -1;
+    }),
 
     getListValue(listId) {
     	var index = document.getElementById(listId).selectedIndex;
@@ -17,9 +19,6 @@ export default Ember.Component.extend({
     actions: {
         submit() {
             this.get('submit')(this.get('bicycleId'), this.get('pointId'));
-            if (this.get('averageTime') != -1) {
-                this.set('isAverageTimeAvailable', true);
-            }
         },
 
         setPointValue() {

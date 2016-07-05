@@ -7,9 +7,5 @@
 {{#if empId}}
     <p>ФИО: {{input value=empFullname}}</p>
     <p>Должность: {{input value=empPosition}}</p>
-    {{#if isDataValid}}
-        <button {{action 'submit'}}>Сохранить</button>
-    {{else}}
-        <button disabled {{action 'submit'}}>Сохранить</button>
-    {{/if}}
+    <button disabled={{not isDataValid}} {{action 'submit'}}>Сохранить</button>
 {{/if}}
