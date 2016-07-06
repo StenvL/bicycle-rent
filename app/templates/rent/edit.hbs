@@ -9,15 +9,16 @@ filter-session-comp
     selectSession=(action 'selectSession')
 }}
 
-{{#if session.id}}   
+{{#if session.id}}  
+
     <h4>Редактирование</h4>
     <p>Клиент:</p>
-        {{filter-client-comp
-            filteredClients=filteredClients
-            searchClients=(action 'searchClients')
-            selectClient=(action 'selectClient')
-        }}
-        Идентификатор клиента: {{session.client}}
+    {{filter-client-comp
+        filteredClients=filteredClients
+        searchClients=(action 'searchClients')
+        selectClient=(action 'selectClient')
+    }}
+    Идентификатор клиента: {{client.id}}
 
     {{
     edit-session-comp
@@ -27,5 +28,6 @@ filter-session-comp
         session=session      
         submit=(action 'applyChanges')
     }}
+
 {{/if}}
 

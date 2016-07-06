@@ -1,8 +1,8 @@
 <p>Велосипед: 
-    <select onchange={{action "selectItem" 'bicyclesListEditing' 'session.bicycle'}} 
+    <select onchange={{action "selectItem" 'bicyclesListEditing' 'ids.bicycleId'}} 
     id="bicyclesListEditing">
         {{#each bicycles as |bicycleItem|}}
-            {{#if (equal bicycleItem.id session.bicycle)}}
+            {{#if (equal bicycleItem.id session.bicycle.id)}}
             	<option selected value={{bicycleItem.id}}>
                 	{{listing-bicycle-comp bicycle=bicycleItem}}
               	</option>
@@ -16,10 +16,10 @@
 </p>
 
 <p>Выдал: 
-    <select onchange={{action "selectItem" 'employeesGiveList' 'session.employeeGive'}} 
+    <select onchange={{action "selectItem" 'employeesGiveList' 'ids.empGiveId'}} 
     id="employeesGiveList">
         {{#each employees as |employeeItem|}}
-            {{#if (equal employeeItem.id session.employeeGive)}}
+            {{#if (equal employeeItem.id session.employeeGive.id)}}
             	<option selected value={{employeeItem.id}}>
                 	{{listing-employee-comp employee=employeeItem}}
               	</option>
@@ -33,10 +33,10 @@
 </p>
 
 <p>Принял: 
-    <select onchange={{action "selectItem" 'employeesTakeList' 'session.employeeTake'}}
+    <select onchange={{action "selectItem" 'employeesTakeList' 'ids.empTakeId'}}
     id="employeesTakeList">
         {{#each employees as |employeeItem|}}
-            {{#if (equal employeeItem.id session.employeeTake)}}
+            {{#if (equal employeeItem.id session.employeeTake.id)}}
                 <option selected value={{employeeItem.id}}>
                     {{listing-employee-comp employee=employeeItem}}
                 </option>
@@ -70,10 +70,10 @@
 </p>
 
 <p>Точка старта: 
-    <select onchange={{action "selectItem" 'pointsStartList' 'session.startPoint'}}
+    <select onchange={{action "selectItem" 'pointsStartList' 'ids.startPointId'}}
     id="pointsStartList">
         {{#each points as |pointItem|}}
-            {{#if (equal pointItem.id session.startPoint)}}
+            {{#if (equal pointItem.id session.startPoint.id)}}
             	<option selected value={{pointItem.id}}>
                 	{{listing-point-comp point=pointItem}}
                 </option>
@@ -87,10 +87,10 @@
 </p>
     
 <p>Точка возврата: 
-    <select onchange={{action "selectItem" 'pointsEndList' 'session.endPoint'}}
+    <select onchange={{action "selectItem" 'pointsEndList' 'ids.endPointId'}}
     id="pointsEndList">
         {{#each points as |pointItem|}}
-            {{#if (equal pointItem.id session.endPoint)}}
+            {{#if (equal pointItem.id session.endPoint.id)}}
             	<option selected value={{pointItem.id}}>
                 	{{listing-point-comp point=pointItem}}
                 </option>

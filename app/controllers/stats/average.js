@@ -4,8 +4,8 @@ export default Ember.Controller.extend({
     averageTime: -1,
 
     actions: {
-        calcAverageTime(bicycleId, pointId) {
-            this.store.query('session', { bicycle: bicycleId, startPoint: pointId, })
+        calcAverageTime(curBicycleId, curPointId) {
+            this.store.query('session', { bicycleId: curBicycleId, startPointId: curPointId })
             .then( (sessions) => {
                 if (sessions.get('length') !== 0) {
                     let timeCount = 0;

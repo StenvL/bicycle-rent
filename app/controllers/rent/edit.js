@@ -3,6 +3,7 @@
 export default Ember.Controller.extend({
     sessionList: [],
     session: null,
+    client: null,
     filteredClients: [],
 
     actions: {
@@ -13,17 +14,19 @@ export default Ember.Controller.extend({
         },
 
         // Присвоение свойствам выбранных значений.
-        selectClient(client) {
-            this.set('session.client', client.get('id'));
+        selectClient(clientItem) {
+            this.set('client', clientItem);
         },
 
-                selectSession(sessionItem) {
+        selectSession(sessionItem) {
             this.set('session', sessionItem);
+            this.set('client', this.get('session.client'));
         },
 
         // Способы фильтрации.
         filterByDateAndModel(selectedDate, selectedBicycleId) {
-            this.store.query('session', { giveDate: selectedDate, bicycle: selectedBicycleId } ).then((result) =>
+            this.store.query('session', 
+            { giveDate: selectedDate, bicycleId: selectedBicycleId } ).then((result) =>
                 this.set('sessionList', result) );
         },
 
@@ -33,24 +36,39 @@ export default Ember.Controller.extend({
         },
 
         filterByModel(selectedBicycleId) {
-            this.store.query('session', { bicycle: selectedBicycleId } ).then((result) =>
+            this.store.query('session', { bicycleId: selectedBicycleId } ).then((result) =>
                 this.set('sessionList', result));
         },
 
         // Сохранение изменений в бэкэнд.
-        applyChanges(giveDate, returnDate) {
-            this.store.findRecord('session', this.get('session').get('id')).then( (record) => {
-                record.set('bicycle',this.get('session').get('bicycle'));
-                record.set('client',this.get('session').get('client'));
-                record.set('employeeGive',this.get('session').get('employeeGive'));
-                record.set('employeeTake',this.get('session').get('employeeTake'));
-                record.set('giveDate', new Date(giveDate));
-                record.set('returnDate', new Date(returnDate));
-                record.set('startPoint', this.get('session').get('startPoint'));
-                record.set('endPoint', this.get('session').get('endPoint'));
-                record.set('status', this.get('session').get('status'));
-                record.set('cost', this.get('session').get('cost'));
-                record.save().then( () =>
+        applyChanges(ids, giveDate, returnDate) {
+            let bicycle = this.get('model.bicycle').find( (item) => 
+                item.id == ids.bicycleId
+            );
+            let employeeGive = this.get('model.employee').find( (item) => 
+                item.id == ids.empGiveId
+            );
+            let employeeTake = this.get('model.employee').find( (item) => 
+                item.id == ids.empTakeId
+            );
+            let startPoint = this.get('model.point').find( (item) => 
+                item.id == ids.startPointId
+            );
+            let endPoint = this.get('model.point').find( (item) => 
+                item.id == ids.endPointId
+            );
+            this.store.findRecord('session', this.get('session.id')).then( (session) => {
+                session.set('bicycle', bicycle);
+                session.set('client', this.get('client'));
+                session.set('employeeGive', employeeGive);
+                session.set('employeeTake', employeeTake);
+                session.set('giveDate', new Date(giveDate));
+                session.set('returnDate', new Date(returnDate));
+                session.set('startPoint', startPoint);
+                session.set('endPoint', endPoint);
+                session.set('status', this.get('session.status'));
+                session.set('cost', this.get('session.cost'));
+                session.save().then( () =>
                     alert('Данные успешно сохранены')
                 );
             })

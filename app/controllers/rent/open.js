@@ -15,19 +15,22 @@ export default Ember.Controller.extend({
             this.set('clientId', client.get('id'));
         },
 
-        openSession(giveName, client, bicycle, startPoint) {
-                let record = this.store.createRecord('session',
-                {
-                    employeeGive: giveName,
-                    client: client,
-                    bicycle: bicycle,
-                    startPoint: startPoint,
-                    giveDate: new Date(),
-                    status: 'Ожидается оплата'
-                });
-            record.save()
-                .then(() => alert('Данные успешно сохранены'))
-                .catch(() => (error => alert(`Ошибка при сохранении данных: ${error}`) ));
+        openSession(empGiveId, clientId, bicycleId, startPointId) {
+            let emp = this.get('model.employee').find( (item) => item.id == empGiveId);
+            let client = this.get('model.client').find( (item) => item.id == clientId);
+            let bicycle = this.get('model.bicycle').find( (item) => item.id == bicycleId);
+            let point = this.get('model.point').find( (item) => item.id == startPointId);
+            
+            this.store.createRecord('session',
+            {
+                employeeGive: emp,
+                client: client,
+                bicycle: bicycle,
+                startPoint: point,
+                giveDate: new Date(),
+                status: 'Ожидается оплата'
+            }).save().then(() => alert('Данные успешно сохранены'))
+                     .catch(error => alert(`Ошибка при сохранении данных: ${error}`) )
         }
     }
 });

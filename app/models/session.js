@@ -7,10 +7,10 @@ export default DS.Model.extend({
     returnDate: DS.attr('date'),
     cost: DS.attr('number'),
     status: DS.attr('string'),
-    startPoint: DS.attr('number'),
-    endPoint: DS.attr('number'),
-    bicycle: DS.attr('number'),
-    employeeGive: DS.attr('number'),
-    employeeTake: DS.attr('number'),
-    client: DS.attr('number'),
+    startPoint: DS.belongsTo('point', { inverse: null }),
+    endPoint: DS.belongsTo('point', { inverse: null }),
+    bicycle: DS.belongsTo('bicycle'),
+    employeeGive: DS.belongsTo('employee', { inverse: null }),
+    employeeTake: DS.belongsTo('employee', { inverse: null }),
+    client: DS.belongsTo('client')
 });

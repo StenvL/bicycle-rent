@@ -49,18 +49,19 @@
             return db.sessions.where( (session) =>  session.status.toLowerCase() == params.status.toLowerCase() );
         } 
         
-        // Фильтры при редактировании и просмотре.
-        else if (params.bicycle !== undefined && params.giveDate !== undefined) {
+        // Фильтр для среднего времени по точкам.
+        else if (params.bicycleId !== undefined && params.startPointId !== undefined) {
             return db.sessions.where( (session) => 
-                session.bicycle == params.bicycle && 
-                session.giveDate.split('T')[0] == params.giveDate );
+                session.bicycleId == params.bicycleId && 
+                session.startPointId == params.startPointId && 
+                session.status == "Закрыта");
         }
 
-        else if (params.bicycle !== undefined && params.startPoint !== undefined) {
+        // Фильтры при редактировании и просмотре.
+        else if (params.bicycleId !== undefined && params.giveDate !== undefined) {
             return db.sessions.where( (session) => 
-                session.bicycle == params.bicycle && 
-                session.startPoint == params.startPoint && 
-                session.status == "Закрыта");
+                session.bicycleId == params.bicycleId && 
+                session.giveDate.split('T')[0] == params.giveDate );
         }
 
         else if (params.giveDate !== undefined) {
@@ -68,8 +69,8 @@
                 session.giveDate.split('T')[0] == params.giveDate );
         }
 
-        else if (params.bicycle !== undefined) {
-            return db.sessions.where( (session) => session.bicycle == params.bicycle );
+        else if (params.bicycleId !== undefined) {
+            return db.sessions.where( (session) => session.bicycleId == params.bicycleId );
         }
         
         // В остальных случаях

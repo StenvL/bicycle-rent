@@ -2,6 +2,13 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
     session: null,
+    ids: {
+        bicycleId: null,
+        empGiveId: null,
+        empTakeId: null,
+        startPointId: null,
+        endPointId: null
+    },
 
     actions: {
         selectItem(listId, attrName) {
@@ -10,7 +17,14 @@ export default Ember.Component.extend({
         },
 
         submit() {
+            if (!this.get('ids.bicycleId')) { this.set('ids.bicycleId', this.get('session.bicycle.id')); }
+            if (!this.get('ids.empGiveId')) { this.set('ids.empGiveId', this.get('session.employeeGive.id')); }
+            if (!this.get('ids.empTakeId')) { this.set('ids.empTakeId', this.get('session.employeeTake.id')); }
+            if (!this.get('ids.startPointId')) { this.set('ids.startPointId', this.get('session.startPoint.id')); }
+            if (!this.get('ids.endPointId')) { this.set('ids.endPointId', this.get('session.endPoint.id')); }
+
             this.get('submit')(
+                this.get('ids'),
                 document.getElementById('giveDatePicker').value,
                 document.getElementById('returnDatePicker').value
             );

@@ -6,5 +6,12 @@ export default Ember.Route.extend({
             bicycle: this.store.findAll('bicycle'), 
             point: this.store.findAll('point')
         });
+    },
+
+    resetController(controller, isExiting) {
+        if (isExiting) {
+            controller.set('averageTime', -1);
+        }
     }
+
 });

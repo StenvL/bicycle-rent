@@ -6,19 +6,16 @@ export default Ember.Component.extend({
     bicycleId: null,
     startPointId: null,
     
-    isDataValid: Ember.computed('clientId', 'bicycleId', 'startPointId', function() {
-        return this.get('clientId') && this.get('bicycleId') && this.get('startPointId');
+    isDataValid: Ember.computed('clientId', 'bicycleId', 'startPointId', 
+        'employeeGiveId', function() {
+            return this.get('clientId') && this.get('bicycleId') && 
+            this.get('startPointId') && this.get('employeeGiveId');
     }),
 
     actions: {
         submit() {
-            if (this.get('employeeGiveId') && this.get('clientId')  && 
-                this.get('bicycleId') && this.get('startPointId')) {
-                    
-                this.get('submit')(this.get('employeeGiveId'), this.get('clientId'), 
-                    this.get('bicycleId'), this.get('startPointId'));
-            }
-            else { alert("Необходимо заполнить все данные"); }
+        	this.get('submit')(this.get('employeeGiveId'), this.get('clientId'), 
+            this.get('bicycleId'), this.get('startPointId'));
         },
 
         selectItem(listId, attrName) {
