@@ -1,13 +1,18 @@
-﻿import Ember from 'ember';
+import Ember from 'ember';
 
 export default Ember.Controller.extend({
     filteredClients: null,
     client: null,
 
     actions: {
-        searchClients(filter) {
-            this.store.query('client', { fullName: filter }).then( (result) =>
-                this.set('filteredClients', result));
+        showFilteredClients(filter) {
+            this.store.query('client', { fullName: filter }).then( (clients) =>
+                this.set('filteredClients', clients) );
+        },
+
+        showAllClients() {
+            this.store.findAll('client').then( (clients) =>
+                this.set('filteredClients', clients) );
         },
 
         selectClient(client) {

@@ -1,4 +1,4 @@
-﻿import Ember from 'ember';
+import Ember from 'ember';
 
 export default Ember.Controller.extend({
     sessionList: [],
@@ -8,10 +8,16 @@ export default Ember.Controller.extend({
 
     actions: {
         // Поиск клиентов по фильтру.
-        searchClients(filter) {
-            this.store.query('client', { fullName: filter }).then( (result) =>
-                this.set('filteredClients', result));
+        showFilteredClients(filter) {
+            this.store.query('client', { fullName: filter }).then( (clients) =>
+                this.set('filteredClients', clients) );
         },
+
+        showAllClients() {
+            this.store.findAll('client').then( (clients) =>
+                this.set('filteredClients', clients) );
+        },
+
 
         // Присвоение свойствам выбранных значений.
         selectClient(clientItem) {
@@ -43,19 +49,19 @@ export default Ember.Controller.extend({
         // Сохранение изменений в бэкэнд.
         applyChanges(ids, giveDate, returnDate) {
             let bicycle = this.get('model.bicycle').find( (item) => 
-                item.id == ids.bicycleId
+                item.id === ids.bicycleId
             );
             let employeeGive = this.get('model.employee').find( (item) => 
-                item.id == ids.empGiveId
+                item.id === ids.empGiveId
             );
             let employeeTake = this.get('model.employee').find( (item) => 
-                item.id == ids.empTakeId
+                item.id === ids.empTakeId
             );
             let startPoint = this.get('model.point').find( (item) => 
-                item.id == ids.startPointId
+                item.id === ids.startPointId
             );
             let endPoint = this.get('model.point').find( (item) => 
-                item.id == ids.endPointId
+                item.id === ids.endPointId
             );
             this.store.findRecord('session', this.get('session.id')).then( (session) => {
                 session.set('bicycle', bicycle);

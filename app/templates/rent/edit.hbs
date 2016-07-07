@@ -15,7 +15,8 @@ filter-session-comp
     <p>Клиент:</p>
     {{filter-client-comp
         filteredClients=filteredClients
-        searchClients=(action 'searchClients')
+        showFilteredClients=(action 'showFilteredClients')
+        showAllClients=(action 'showAllClients')
         selectClient=(action 'selectClient')
     }}
     Идентификатор клиента: {{client.id}}

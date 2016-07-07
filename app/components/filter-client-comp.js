@@ -5,10 +5,14 @@ export default Ember.Component.extend({
     filteredClients: null,
 
     actions: {
-        searchClients() {
+        showFilteredClients() {
             if (this.get('filterValue')) {
-                this.get('searchClients')(this.get('filterValue'));
+                this.get('showFilteredClients')(this.get('filterValue'));
             }
+        },
+
+        showAllClients() {
+            this.get('showAllClients')();
         },
 
         selectClient(client) {

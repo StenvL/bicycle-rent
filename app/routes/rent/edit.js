@@ -9,7 +9,7 @@ export default Ember.Route.extend({
         });    
     },
 
-    resetController(controller, isExiting, transition) {
+    resetController(controller, isExiting) {
         if (isExiting) {
             controller.set('sessionList', []);
             controller.set('filteredClients', []);

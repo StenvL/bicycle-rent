@@ -1,11 +1,20 @@
-export default function(/* server */) {
+export default function(server) {
+    server.create('employee', { fullName: 'Басков Николай Евгеньевич', position: 'Директор'});
+    server.create('employee', { fullName: 'Петров Иван Сидоров', position: 'Менеджер'});
+    server.create('employee', { fullName: 'Никаноров Никанор Петрович', position: 'Менеджер'});
+    server.create('employee', { fullName: 'Андреев Петр Николаевич', position: 'Менеджер'});
 
-  /*
-    Seed your development database using your factories.
-    This data will not be loaded in your tests.
+    server.create('bicycle', { model: 'Stels', description: 'Хороший велосипед для шоссе'});
+    server.create('bicycle', { model: 'Forward', description: 'Хороший велосипед для бездорожья'});
+    server.create('bicycle', { model: 'Rock Machine', description: 'Хороший велосипед для всего'});
+    server.create('bicycle', { model: 'Школьник', description: 'Хороший детский велосипед'});
 
-    Make sure to define a factory for each model you want to create.
-  */
+    server.create('client', { fullName: 'Васечкин Василий Васильевич', documentData: 'Паспорт 2134 423151'});
+    server.create('client', { fullName: 'Петров Петр Петрович', documentData: 'Паспорт 2314 543214'});
+    server.create('client', { fullName: 'Андреев Андрей Андреевич', documentData: 'Права 12314312'});
+    server.create('client', { fullName: 'Николаев Николай Николаевич', documentData: 'Паспорт 1324 123423'});
 
-  // server.createList('post', 10);
+    server.create('point', { address: 'Пушкина 1' });
+    server.create('point', { address: 'Эспланада' });
+    server.create('point', { address: 'Красная площадь' });
 }

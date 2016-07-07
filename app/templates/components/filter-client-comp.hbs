@@ -1,5 +1,6 @@
-﻿{{input value=filterValue}}
-<button {{action 'searchClients'}}>Поиск</button>
+﻿<p>{{input value=filterValue}}</p>
+<button {{action 'showFilteredClients'}}>Поиск</button>
+<button {{action 'showAllClients'}}>Показать всех</button>
 
 <ul>
     {{#each filteredClients as |clientItem| }}
