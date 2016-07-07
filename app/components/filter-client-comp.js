@@ -15,6 +15,10 @@ export default Ember.Component.extend({
             this.get('showAllClients')();
         },
 
+        hideClients() {
+            this.set('filteredClients', []);
+        },
+
         selectClient(client) {
             let clientClone = {};
             for (let key in client) {

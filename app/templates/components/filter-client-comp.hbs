@@ -1,6 +1,7 @@
 ﻿<p>{{input value=filterValue}}</p>
 <button {{action 'showFilteredClients'}}>Поиск</button>
 <button {{action 'showAllClients'}}>Показать всех</button>
+<button {{action 'hideClients'}}>Скрыть</button>
 
 <ul>
     {{#each filteredClients as |clientItem| }}

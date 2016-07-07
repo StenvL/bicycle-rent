@@ -23,11 +23,25 @@ export default Ember.Component.extend({
             if (!this.get('ids.startPointId')) { this.set('ids.startPointId', this.get('session.startPoint.id')); }
             if (!this.get('ids.endPointId')) { this.set('ids.endPointId', this.get('session.endPoint.id')); }
 
-            this.get('submit')(
-                this.get('ids'),
-                document.getElementById('giveDatePicker').value,
-                document.getElementById('returnDatePicker').value
-            );
+            let giveDatePicker = document.getElementById('giveDatePicker');
+            let returnDatePicker = document.getElementById('returnDatePicker');
+
+            if (giveDatePicker && returnDatePicker) {
+                this.get('submit')(this.get('ids'),
+                    document.getElementById('giveDatePicker').value,
+                    document.getElementById('returnDatePicker').value
+                );
+            } else if(giveDatePicker) {
+                this.get('submit')(this.get('ids'),
+                    document.getElementById('giveDatePicker').value,
+                    null
+                );
+            } else {
+                this.get('submit')(this.get('ids'),
+                    null,
+                    document.getElementById('returnDatePicker').value                    
+                );
+            }
         }
     }
 });

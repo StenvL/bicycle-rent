@@ -1,11 +1,17 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
+    actions: {
+        sessionOpened() {
+            this.refresh();
+        }
+    }, 
+
     model() {
         return Ember.RSVP.hash({
             employee: this.store.findAll('employee'), 
             client: this.store.findAll('client'),
-            bicycle: this.store.findAll('bicycle'),
+            bicycle: this.store.query('bicycle', { isGiven: false }),
             point: this.store.findAll('point')
         });
     },

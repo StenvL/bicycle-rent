@@ -4,10 +4,10 @@ export default function(server) {
     server.create('employee', { fullName: 'Никаноров Никанор Петрович', position: 'Менеджер'});
     server.create('employee', { fullName: 'Андреев Петр Николаевич', position: 'Менеджер'});
 
-    server.create('bicycle', { model: 'Stels', description: 'Хороший велосипед для шоссе'});
-    server.create('bicycle', { model: 'Forward', description: 'Хороший велосипед для бездорожья'});
-    server.create('bicycle', { model: 'Rock Machine', description: 'Хороший велосипед для всего'});
-    server.create('bicycle', { model: 'Школьник', description: 'Хороший детский велосипед'});
+    server.create('bicycle', { model: 'Stels', description: 'Хороший велосипед для шоссе', isGiven: false});
+    server.create('bicycle', { model: 'Forward', description: 'Хороший велосипед для бездорожья', isGiven: false});
+    server.create('bicycle', { model: 'Rock Machine', description: 'Хороший велосипед для всего', isGiven: false});
+    server.create('bicycle', { model: 'Школьник', description: 'Хороший детский велосипед', isGiven: false});
 
     server.create('client', { fullName: 'Васечкин Василий Васильевич', documentData: 'Паспорт 2134 423151'});
     server.create('client', { fullName: 'Петров Петр Петрович', documentData: 'Паспорт 2314 543214'});

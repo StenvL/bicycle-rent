@@ -8,7 +8,15 @@
 
 //------------------------------------------------------------------------------------------------------------------------
 
-    this.get('/bicycles/');
+    this.get('/bicycles/', (db, request) => {
+        if (request.queryParams.isGiven !== undefined) {
+            return db.bicycles.where( (bicycle) => 
+                bicycle.isGiven.toString() == request.queryParams.isGiven
+            );
+        }
+        else { return db.bicycles.all(); }
+    });
+
     this.get('/bicycles/:id')
     this.post('/bicycles');
     this.del('/bicycles/:id');
