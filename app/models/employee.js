@@ -9,6 +9,7 @@ export default DS.Model.extend({
 
     getShortName: Ember.computed('fullName', function() {
         let nameSplit = Ember.String.w(this.get('fullName'));
-        return `${nameSplit[1]} ${nameSplit[0]}`;
+        if (nameSplit.length === 3) { return `${nameSplit[1]} ${nameSplit[0]}`; }
+        else { return this.get('fullName'); }
     })
 });
